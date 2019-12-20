@@ -14,6 +14,7 @@ const dotenv = require('dotenv');
 
 const { errorHandler } = require('./controller/_helper');
 const configureRoutes = require('./routes');
+const parse = require('url-parse')
 
 dotenv.config({ path: '.env' });
 
@@ -33,7 +34,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(function(req, res, next) {
-    res.header("Access-Control-Allow-Origin", process.env.APP_URL); // update to match the domain you will make the request from
+    res.header("Access-Control-Allow-Origin", parse(process.env.APP_URL).origin); // update to match the domain you will make the request from
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     res.header('Access-Control-Allow-Methods', 'PUT, POST, GET, DELETE, OPTIONS');
     res.setHeader("Access-Control-Allow-Credentials", true);

@@ -24,6 +24,7 @@
     "passport-local": "^1.0.0",
     "pug": "^2.0.4",
     "simple-mongoose-autoincrement": "^1.2.1",
+    "url-parse": "^1.4.7",
     "validator": "^12.1.0"
   }
 }
