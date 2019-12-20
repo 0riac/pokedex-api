@@ -20,7 +20,7 @@ router.post('/', function(req, res, next) {
 
 router.get('/github', passport.authenticate('github', { scope: [ 'user:email' ] }), function(req, res) {})
 router.get('/github/callback', passport.authenticate('github', { failureRedirect: `${process.env.APP_URL}/login?error=true` }), function(req, res) {
-    res.redirect(`${config.clientUrl}`)
+    res.redirect(`${process.env.APP_URL}`)
 })
 
 router.get('/logout', function(req, res){
